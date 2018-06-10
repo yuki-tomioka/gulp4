@@ -17,6 +17,7 @@ const concat = require('gulp-concat')
 const imagemin = require('gulp-imagemin')
 const imageminPngquant = require('imagemin-pngquant')
 const imageminMozjpeg = require('imagemin-mozjpeg')
+const del = require('del');
 
 // ブラウザ関連読み込み
 const browserSync = require('browser-sync').create()
@@ -68,10 +69,15 @@ gulp.task('sass', () => {
 // 画像圧縮
 gulp.task('imagemin', () => {
   return gulp
-    .src('./src/**/images/*')
+    .src('./src/assets/images/*')
     .pipe(imagemin(imageminOption))
-    .pipe(gulp.dest('./dist/assets/images'))
+    .pipe(gulp.dest('./dist/assets/images/'))
 })
+
+gulp.task('clean', (done) => {
+  del(['./dist/assets/images/*'])
+  done()
+});
 
 // ブラウザ自動更新
 gulp.task('serve', (done) => {
@@ -88,6 +94,7 @@ gulp.task('watch', (done) => {
     done()
   }
   gulp.watch('./src/assets/sass/**/*.scss', gulp.series('sass'))
+  gulp.watch('./src/**/images/*', gulp.series('clean', 'imagemin'))
   gulp.watch('./dist/**/*', browserReload)
 })
 
