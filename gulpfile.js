@@ -24,6 +24,8 @@ const uglify = require('gulp-uglify');
 
 // ブラウザ関連読み込み
 const browserSync = require('browser-sync').create()
+const connect = require('gulp-connect-php');
+
 
 /*===================================================
           設定
@@ -52,7 +54,7 @@ const imageminOption = [
 
 // ブラウザ関連設定
 const browserSyncOption = {
-  server: './dist'
+  proxy: 'exmaple.com'
 }
 /*===================================================
           タスク定義
@@ -92,6 +94,10 @@ gulp.task('js', () => {
 
 // ブラウザ自動更新
 gulp.task('serve', (done) => {
+  connect.server({
+    port: 8001,
+    base: './dist'
+  })
   browserSync.init(browserSyncOption)
   done()
 })
