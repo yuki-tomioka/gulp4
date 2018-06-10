@@ -84,6 +84,13 @@ gulp.task('serve', (done) => {
   browserSync.init(browserSyncOption)
   done()
 })
+
+// wpのstyle.cssのコピー
+gulp.task('style', () => {
+  return gulp
+   .src('./src/style.css')
+   .pipe(gulp.dest('./dist/'))
+})
 /*===================================================
           watchタスク
 ===================================================*/
@@ -95,6 +102,7 @@ gulp.task('watch', (done) => {
   }
   gulp.watch('./src/assets/sass/**/*.scss', gulp.series('sass'))
   gulp.watch('./src/**/images/*', gulp.series('clean', 'imagemin'))
+  gulp.watch('./src/style.css', gulp.series('style'))
   gulp.watch('./dist/**/*', browserReload)
 })
 
