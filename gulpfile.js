@@ -19,6 +19,9 @@ const imageminPngquant = require('imagemin-pngquant')
 const imageminMozjpeg = require('imagemin-mozjpeg')
 const del = require('del');
 
+// js関連読み込み
+const uglify = require('gulp-uglify');
+
 // ブラウザ関連読み込み
 const browserSync = require('browser-sync').create()
 
@@ -78,6 +81,14 @@ gulp.task('imgclean', (done) => {
   del(['./dist/assets/images/*'])
   done()
 });
+
+// js
+gulp.task('js', () => {
+  return gulp
+    .src('./src/assets/js/**/*js')
+    .pipe(uglify())
+    .pipe(gulp.dest('./dist/assets/js/'))
+})
 
 // ブラウザ自動更新
 gulp.task('serve', (done) => {
