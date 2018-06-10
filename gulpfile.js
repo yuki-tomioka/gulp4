@@ -74,7 +74,7 @@ gulp.task('imagemin', () => {
     .pipe(gulp.dest('./dist/assets/images/'))
 })
 
-gulp.task('clean', (done) => {
+gulp.task('imgclean', (done) => {
   del(['./dist/assets/images/*'])
   done()
 });
@@ -91,6 +91,18 @@ gulp.task('style', () => {
    .src('./src/style.css')
    .pipe(gulp.dest('./dist/'))
 })
+
+// phpのコピー
+gulp.task('php', () => {
+  return gulp
+   .src('./src/**/*.php')
+   .pipe(gulp.dest('./dist/'))
+})
+
+gulp.task('phpclean', (done) => {
+  del(['./dist/**/*.php'])
+  done()
+});
 /*===================================================
           watchタスク
 ===================================================*/
@@ -101,8 +113,9 @@ gulp.task('watch', (done) => {
     done()
   }
   gulp.watch('./src/assets/sass/**/*.scss', gulp.series('sass'))
-  gulp.watch('./src/**/images/*', gulp.series('clean', 'imagemin'))
+  gulp.watch('./src/**/images/*', gulp.series('imgclean', 'imagemin'))
   gulp.watch('./src/style.css', gulp.series('style'))
+  gulp.watch('./src/**/*.php', gulp.series('phpclean', 'php'))
   gulp.watch('./dist/**/*', browserReload)
 })
 
