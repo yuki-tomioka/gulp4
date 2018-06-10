@@ -1,0 +1,31 @@
+{
+  "name": "gulp4",
+  "version": "1.0.0",
+  "description": "coding with gulp4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuki-tomioka/gulp4.git"
+  },
+  "keywords": [],
+  "author": "Yuki Tomioka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuki-tomioka/gulp4/issues"
+  },
+  "homepage": "https://github.com/yuki-tomioka/gulp4#readme",
+  "devDependencies": {
+    "autoprefixer": "^8.6.2",
+    "browser-sync": "^2.24.4",
+    "css-mqpacker": "^6.0.2",
+    "csswring": "^6.0.3",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-pngquant": "^5.1.0",
+    "postcss-flexbugs-fixes": "^3.3.1"
+  }
+}

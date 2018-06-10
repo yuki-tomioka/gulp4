@@ -1,0 +1,145 @@
+@charset "UTF-8";
+/*=========================================================
+  既存で使っている下記３つの項目をまとめるファイルになります。
+  default.cssの内容をここに書き込みます。
+  HTML要素のみ書いていきます。classやidなどはここには記述しません。
+  Universal Reset
+  Default Style
+  hasLayout
+=========================================================*/
+
+
+/* フォームのリセット */
+input, button, textarea, select, option {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+select::-ms-expand {
+    display: none;
+}
+
+
+/*--------------------------------------------------
+  Universal Reset
+--------------------------------------------------*/
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, del, ins, em, img, hr, q, strong, sub, sup, dl, dt, dd,
+ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, figure {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-size: 100%;
+  height: 1;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+table, th, td {
+  border: 0 none;
+}
+
+th {
+  font-weight: normal;
+  text-align: left;
+}
+
+caption {
+  text-align: left;
+}
+
+strong {
+  font-weight: normal;
+}
+
+em {
+  font-style: normal;
+}
+
+img {
+  border: 0;
+  vertical-align: top;
+}
+
+dt {
+  font-weight: normal;
+}
+
+fieldset {
+  border: 0 none;
+}
+
+legend {
+  display: none;
+}
+
+textarea {
+  font-size: 1em;
+}
+
+/*--------------------------------------------------
+  Default Style
+--------------------------------------------------*/
+body {
+  font-size: 100.01%;
+  margin-bottom: 0;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+a,
+a:link {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  /*要変更案件によって指定を変える*/
+}
+
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+}
+
+sup {
+  vertical-align: top;
+}
+
+sub {
+  vertical-align: baseline;
+}
+
+/*--------------------------------------------------
+  hasLayout
+--------------------------------------------------*/
+div, ul, dl, dt, dd, p,
+h1, h2, h3, h4, h5, h6 {
+  zoom: 1;
+}
+
+article, aside, dialog, figure, footer,
+header, hgroup, menu, nav, section {
+  display: block;
+}
+
+
+
