@@ -1,4 +1,4 @@
-const themeDirName = 'example'
+const themeDirName = 'recruit.green-display_theme'
 /*===================================================
           読み込み
 ===================================================*/
@@ -55,7 +55,7 @@ const imageminOption = [
 
 // ブラウザ関連設定
 const browserSyncOption = {
-  proxy: 'exmaple.com'
+  proxy: 'recruit.green-display.co.jp'
 }
 /*===================================================
           タスク定義
@@ -88,7 +88,7 @@ gulp.task('imgclean', (done) => {
 // js
 gulp.task('js', () => {
   return gulp
-    .src('./src/assets/js/**/*js')
+    .src('./src/assets/js/**/*.js')
     .pipe(uglify())
     .pipe(gulp.dest('../' + themeDirName + '/assets/js/'))
 })
@@ -133,6 +133,7 @@ gulp.task('watch', (done) => {
   gulp.watch('./src/assets/sass/**/*.scss', gulp.series('sass'))
   gulp.watch('./src/**/images/*', gulp.series('imgclean', 'imagemin'))
   gulp.watch('./src/style.css', gulp.series('style'))
+  gulp.watch('./src/assets/js/*.js', gulp.series('js'))
   gulp.watch('./src/**/*.php', gulp.series('phpclean', 'php'))
   gulp.watch('../' + themeDirName + '/**/*', browserReload)
 })
