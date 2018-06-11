@@ -1,3 +1,4 @@
+const themeDirName = 'example'
 /*===================================================
           読み込み
 ===================================================*/
@@ -68,7 +69,7 @@ gulp.task('sass', () => {
     .pipe(postcss(postcssOption))
     .pipe(concat('style.css'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dist/assets/css/'))
+    .pipe(gulp.dest('../' + themeDirName + '/assets/css/'))
 })
 
 // 画像圧縮
@@ -76,11 +77,11 @@ gulp.task('imagemin', () => {
   return gulp
     .src('./src/assets/images/*')
     .pipe(imagemin(imageminOption))
-    .pipe(gulp.dest('./dist/assets/images/'))
+    .pipe(gulp.dest('../' + themeDirName + '/assets/images/'))
 })
 
 gulp.task('imgclean', (done) => {
-  del(['./dist/assets/images/*'])
+  del(['../' + themeDirName + '/assets/images/*'])
   done()
 });
 
@@ -89,14 +90,14 @@ gulp.task('js', () => {
   return gulp
     .src('./src/assets/js/**/*js')
     .pipe(uglify())
-    .pipe(gulp.dest('./dist/assets/js/'))
+    .pipe(gulp.dest('../' + themeDirName + '/assets/js/'))
 })
 
 // ブラウザ自動更新
 gulp.task('serve', (done) => {
   connect.server({
     port: 8001,
-    base: './dist'
+    base: '../' + themeDirName + ''
   })
   browserSync.init(browserSyncOption)
   done()
@@ -106,18 +107,18 @@ gulp.task('serve', (done) => {
 gulp.task('style', () => {
   return gulp
    .src('./src/style.css')
-   .pipe(gulp.dest('./dist/'))
+   .pipe(gulp.dest('../' + themeDirName + '/'))
 })
 
 // phpのコピー
 gulp.task('php', () => {
   return gulp
    .src('./src/**/*.php')
-   .pipe(gulp.dest('./dist/'))
+   .pipe(gulp.dest('../' + themeDirName + '/'))
 })
 
 gulp.task('phpclean', (done) => {
-  del(['./dist/**/*.php'])
+  del(['../' + themeDirName + '/**/*.php'])
   done()
 });
 /*===================================================
@@ -133,7 +134,7 @@ gulp.task('watch', (done) => {
   gulp.watch('./src/**/images/*', gulp.series('imgclean', 'imagemin'))
   gulp.watch('./src/style.css', gulp.series('style'))
   gulp.watch('./src/**/*.php', gulp.series('phpclean', 'php'))
-  gulp.watch('./dist/**/*', browserReload)
+  gulp.watch('../' + themeDirName + '/**/*', browserReload)
 })
 
 gulp.task('default', gulp.series('serve', 'watch'))
