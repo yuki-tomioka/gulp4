@@ -55,7 +55,7 @@ const imageminOption = [
 
 // ブラウザ関連設定
 const browserSyncOption = {
-  proxy: 'recruit.green-display.co.jp'
+  proxy: 'example.com'
 }
 /*===================================================
           タスク定義
