@@ -1,4 +1,4 @@
-const themeDirName = 'recruit.green-display_theme'
+const themeDirName = 'example'
 /*===================================================
           読み込み
 ===================================================*/
