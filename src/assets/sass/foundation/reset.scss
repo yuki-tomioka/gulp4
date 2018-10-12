@@ -8,6 +8,10 @@
   hasLayout
 =========================================================*/
 
+/* font-sizeをremで指定しやすくする 10px = 1rem */
+html {
+  font-size: 62.5%;
+}
 
 /* フォームのリセット */
 input, button, textarea, select, option {
