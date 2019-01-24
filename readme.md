@@ -1,8 +1,15 @@
-# use
+# usage
 ```
 $ npm i
 $ npx gulp
 ```
+## setting support browser
+- open package.json
+- edit browserslist
+
+## setting server
+- open gulpfile.js
+- edit const browserSyncOption
 
 # environment
 node v10.4.0  
